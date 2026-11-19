@@ -1,6 +1,7 @@
 {
   "name": "circlo",
   "private": true,
+  "type": "module",
   "scripts": {
     "setup": "npm install && npm install --prefix backend && npm install --prefix frontend",
     "start": "concurrently --kill-others --names backend,frontend \"npm --prefix backend run dev\" \"npm --prefix frontend run dev\"",
@@ -8,5 +9,17 @@
   },
   "devDependencies": {
     "concurrently": "^9.1.2"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^2.3.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "datauri": "^4.1.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^8.4.1",
+    "multer": "^1.4.5-lts.1"
   }
 }
