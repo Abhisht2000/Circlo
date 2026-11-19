@@ -19,9 +19,9 @@ const Browse = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto my-10'>
-                <h1 className='font-bold text-xl my-10'>Search Results ({allJobs.length})</h1>
-                <div className='grid grid-cols-3 gap-4'>
+            <main className='page-shell py-10'>
+                <div className='mb-8 rounded-3xl bg-slate-950 px-6 py-10 text-white sm:px-10'><p className='text-sm font-semibold uppercase tracking-[0.18em] text-violet-300'>Search results</p><h1 className='mt-2 text-3xl font-bold tracking-tight'>Discover {allJobs.length} open roles</h1><p className='mt-3 max-w-xl text-sm leading-6 text-slate-300'>Browse positions from growing teams, then apply when the fit feels right.</p></div>
+                <div className='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
                     {
                         allJobs.map((job) => {
                             return (
@@ -31,7 +31,7 @@ const Browse = () => {
                     }
                 </div>
 
-            </div>
+            </main>
         </div>
     )
 }

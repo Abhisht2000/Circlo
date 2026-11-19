@@ -27,15 +27,16 @@ const Jobs = () => {
     return (
         <div>
             <Navbar />
-            <div className='max-w-7xl mx-auto mt-5'>
-                <div className='flex gap-5'>
-                    <div className='w-20%'>
+            <main className='page-shell py-8 sm:py-10'>
+                <div className='mb-8'><p className='eyebrow mb-2'>Opportunity board</p><h1 className='text-3xl font-bold tracking-tight text-slate-900'>Find a role worth growing into</h1><p className='mt-2 text-slate-600'>{filterJobs.length} curated opportunities ready for you.</p></div>
+                <div className='flex flex-col gap-6 lg:flex-row'>
+                    <div className='w-full lg:w-64 lg:shrink-0'>
                         <FilterCard />
                     </div>
                     {
-                        filterJobs.length <= 0 ? <span>Job not found</span> : (
-                            <div className='flex-1 h-[88vh] overflow-y-auto pb-5'>
-                                <div className='grid grid-cols-3 gap-4'>
+                        filterJobs.length <= 0 ? <div className='surface-card flex flex-1 flex-col items-center justify-center p-12 text-center'><h2 className='text-lg font-bold'>No roles match that filter</h2><p className='mt-2 text-sm text-slate-500'>Try a different keyword or clear the filters.</p></div> : (
+                            <div className='flex-1 pb-5'>
+                                <div className='grid gap-5 sm:grid-cols-2 xl:grid-cols-3'>
                                     {
                                         filterJobs.map((job) => (
                                             <motion.div
@@ -53,7 +54,7 @@ const Jobs = () => {
                         )
                     }
                 </div>
-            </div>
+            </main>
 
 
         </div>

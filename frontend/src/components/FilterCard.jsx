@@ -29,21 +29,20 @@ const FilterCard = () => {
         dispatch(setSearchedQuery(selectedValue));
     },[selectedValue]);
     return (
-        <div className='w-full bg-white p-3 rounded-md'>
-            <h1 className='font-bold text-lg'>Filter Jobs</h1>
-            <hr className='mt-3' />
+        <aside className='surface-card w-full p-5'>
+            <div className='mb-5 flex items-center justify-between'><h1 className='font-bold text-lg text-slate-900'>Filters</h1>{selectedValue && <button onClick={() => setSelectedValue('')} className='text-xs font-semibold text-violet-600'>Clear</button>}</div>
             <RadioGroup value={selectedValue} onValueChange={changeHandler}>
                 {
                     fitlerData.map((data, index) => (
-                        <div>
-                            <h1 className='font-bold text-lg'>{data.fitlerType}</h1>
+                        <div key={data.fitlerType} className='border-t border-slate-100 py-4 first:border-0 first:pt-0'>
+                            <h2 className='mb-3 text-sm font-bold text-slate-900'>{data.fitlerType}</h2>
                             {
                                 data.array.map((item, idx) => {
                                     const itemId = `id${index}-${idx}`
                                     return (
-                                        <div className='flex items-center space-x-2 my-2'>
+                                    <div key={item} className='flex items-center space-x-2 py-1'>
                                             <RadioGroupItem value={item} id={itemId} />
-                                            <Label htmlFor={itemId}>{item}</Label>
+                                            <Label className='cursor-pointer text-sm font-normal text-slate-600' htmlFor={itemId}>{item}</Label>
                                         </div>
                                     )
                                 })
@@ -52,7 +51,7 @@ const FilterCard = () => {
                     ))
                 }
             </RadioGroup>
-        </div>
+        </aside>
     )
 }
 

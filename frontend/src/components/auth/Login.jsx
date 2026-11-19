@@ -56,9 +56,9 @@ const Login = () => {
     return (
         <div>
             <Navbar />
-            <div className='flex items-center justify-center max-w-7xl mx-auto'>
-                <form onSubmit={submitHandler} className='w-1/2 border border-gray-200 rounded-md p-4 my-10'>
-                    <h1 className='font-bold text-xl mb-5'>Login</h1>
+            <main className='min-h-[calc(100vh-72px)] bg-gradient-to-br from-violet-50 via-white to-indigo-50 px-4 py-12'>
+                <form onSubmit={submitHandler} className='surface-card mx-auto w-full max-w-md p-7 sm:p-9'>
+                    <p className='eyebrow mb-3'>Welcome back</p><h1 className='mb-2 text-3xl font-bold tracking-tight'>Sign in to Circlo</h1><p className='mb-7 text-sm text-slate-500'>Continue building your next chapter.</p>
                     <div className='my-2'>
                         <Label>Email</Label>
                         <Input
@@ -109,9 +109,9 @@ const Login = () => {
                     {
                         loading ? <Button className="w-full my-4"> <Loader2 className='mr-2 h-4 w-4 animate-spin' /> Please wait </Button> : <Button type="submit" className="w-full my-4">Login</Button>
                     }
-                    <span className='text-sm'>Don't have an account? <Link to="/signup" className='text-blue-600'>Signup</Link></span>
+                    <span className='text-sm text-slate-600'>New to Circlo? <Link to="/signup" className='font-semibold text-violet-700'>Create an account</Link></span>
                 </form>
-            </div>
+            </main>
         </div>
     )
 }

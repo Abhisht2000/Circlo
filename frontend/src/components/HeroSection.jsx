@@ -16,15 +16,15 @@ const HeroSection = () => {
     }
 
     return (
-        <div className='text-center'>
-            <div className='flex flex-col gap-5 my-10'>
-                <span className=' mx-auto px-4 py-2 rounded-full bg-gray-100 text-[#F83002] font-medium'>No. 1 Job Hunt Website</span>
-                <h1 className='text-5xl font-bold'>Search, Apply & <br /> Get Your <span className='text-[#6A38C2]'>Dream Jobs</span></h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid aspernatur temporibus nihil tempora dolor!</p>
-                <div className='flex w-[40%] shadow-lg border border-gray-200 pl-3 rounded-full items-center gap-4 mx-auto'>
+        <section className='bg-gradient-to-b from-violet-50 via-white to-white'>
+            <div className='mx-auto flex max-w-5xl flex-col gap-6 px-4 py-20 text-center sm:py-28'>
+                <span className='mx-auto rounded-full border border-violet-100 bg-white px-4 py-2 text-sm font-semibold text-violet-700 shadow-sm'>Find work that fits your next chapter</span>
+                <h1 className='text-4xl font-bold tracking-tight text-slate-900 sm:text-6xl'>Search, apply and land your <span className='text-[#6A38C2]'>next great role.</span></h1>
+                <p className='mx-auto max-w-2xl text-base leading-7 text-slate-600'>Explore hand-picked opportunities from ambitious teams across India and remote-first companies.</p>
+                <div className='flex w-full max-w-2xl shadow-lg border border-violet-100 bg-white pl-4 rounded-full items-center gap-4 mx-auto'>
                     <input
                         type="text"
-                        placeholder='Find your dream jobs'
+                        placeholder='Job title, skill or company'
                         onChange={(e) => setQuery(e.target.value)}
                         className='outline-none border-none w-full'
 
@@ -34,7 +34,7 @@ const HeroSection = () => {
                     </Button>
                 </div>
             </div>
-        </div>
+        </section>
     )
 }
 

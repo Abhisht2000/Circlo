@@ -2,9 +2,10 @@ import React from 'react'
 import { Popover, PopoverContent, PopoverTrigger } from '../ui/popover'
 import { Button } from '../ui/button'
 import { Avatar, AvatarImage } from '../ui/avatar'
-import { LogOut, User2 } from 'lucide-react'
+import { LogOut, Menu, User2, X } from 'lucide-react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
+import { useState } from 'react'
 import axios from 'axios'
 import { USER_API_END_POINT } from '@/utils/constant'
 import { setUser } from '@/redux/authSlice'
@@ -14,6 +15,7 @@ const Navbar = () => {
     const { user } = useSelector(store => store.auth);
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
 
     const logoutHandler = async () => {
         try {
@@ -29,13 +31,14 @@ const Navbar = () => {
         }
     }
     return (
-        <div className='bg-white'>
-            <div className='flex items-center justify-between mx-auto max-w-7xl h-16'>
-                <div>
-                    <h1 className='text-2xl font-bold'>Job<span className='text-[#F83002]'>Portal</span></h1>
-                </div>
-                <div className='flex items-center gap-12'>
-                    <ul className='flex font-medium items-center gap-5'>
+        <header className='sticky top-0 z-40 border-b border-slate-200/80 bg-white/85 backdrop-blur-xl'>
+            <div className='page-shell flex h-[72px] items-center justify-between'>
+                <Link to="/" className='flex items-center gap-2' onClick={() => setMenuOpen(false)}>
+                    <span className='grid h-9 w-9 place-items-center rounded-xl bg-violet-600 text-lg font-black text-white shadow-lg shadow-violet-200'>C</span>
+                    <h1 className='text-xl font-extrabold tracking-tight text-slate-900'>Circlo</h1>
+                </Link>
+                <div className='hidden items-center gap-8 md:flex'>
+                    <ul className='flex font-medium items-center gap-6 text-sm text-slate-600'>
                         {
                             user && user.role === 'recruiter' ? (
                                 <>
@@ -99,9 +102,15 @@ const Navbar = () => {
                     }
 
                 </div>
+                <Button variant="ghost" size="icon" className='md:hidden' onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle navigation">{menuOpen ? <X /> : <Menu />}</Button>
             </div>
-
-        </div>
+            {menuOpen && <div className='border-t border-slate-100 bg-white px-4 py-4 md:hidden'>
+                <div className='flex flex-col gap-3 text-sm font-medium text-slate-700'>
+                    <Link onClick={() => setMenuOpen(false)} to="/">Home</Link><Link onClick={() => setMenuOpen(false)} to="/jobs">Jobs</Link><Link onClick={() => setMenuOpen(false)} to="/browse">Browse</Link>
+                    {!user && <div className='flex gap-2 pt-2'><Link className='flex-1' to="/login"><Button variant="outline" className='w-full'>Log in</Button></Link><Link className='flex-1' to="/signup"><Button className='w-full bg-violet-600 hover:bg-violet-700'>Join Circlo</Button></Link></div>}
+                </div>
+            </div>}
+        </header>
     )
 }
 
