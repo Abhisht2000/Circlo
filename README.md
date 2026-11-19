@@ -43,3 +43,18 @@ npm --prefix frontend run build
 ```
 
 The backend and frontend have separate package files; `npm run setup` installs dependencies in all three project folders. `npm start` runs both development servers and stops both if either exits.
+
+## DevOps
+
+Run the application locally with Docker Compose:
+
+```sh
+docker compose up --build
+```
+
+The backend is available at `http://localhost:5000` and the frontend at `http://localhost:3000`. The GitHub Actions workflow in `.github/workflows/ci-cd.yml` runs `build-test` for backend and frontend on pushes and pull requests, then runs `docker-publish` after successful tests on pushes to `main`.
+
+Configure these GitHub repository secrets for Docker Hub publishing:
+
+- `DOCKERHUB_USERNAME`
+- `DOCKERHUB_TOKEN`

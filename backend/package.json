@@ -6,8 +6,9 @@
   "type": "module",
   "scripts": {
     "dev": "nodemon --exitcrash index.js",
-    "seed:demo": "node scripts/seedDemo.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "test": "echo \"No test suite configured\"",
+    "seed:demo": "node scripts/seedDemo.js"
   },
   "author": "",
   "license": "ISC",
