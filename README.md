@@ -42,4 +42,4 @@ From the repository root, run:
 npm --prefix frontend run build
 ```
 
-The backend and frontend have separate package files; `npm run setup` installs dependencies in all three project folders. `npm start` runs both development servers and stops both if either exits.
+The backend and frontend have separate package files; `npm run setup` installs dependencies in all three project folders. `npm start` runs both development servers and stops both if either exits..
