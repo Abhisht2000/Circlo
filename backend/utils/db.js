@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const connectDB = async () => {
     const mongoUri = process.env.MONGO_URI;
     if (!mongoUri) {
-        throw new Error("MONGO_URI is required. Add it to backend/.env before starting the server.");
+        throw new Error("MONGO_URI is required. Add it to .env before starting the server.");
     }
 
     if (mongoose.connection.readyState === 1) return mongoose.connection;
