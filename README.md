@@ -46,7 +46,7 @@ The backend and frontend have separate package files; `npm run setup` installs d
 
 ## DevOps
 
-Run the application locally with Docker Compose:
+Run the application locally with the Docker Compose:
 
 ```sh
 docker compose up --build
